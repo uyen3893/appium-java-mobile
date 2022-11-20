@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import org.apache.commons.validator.routines.EmailValidator;
+import org.testng.Assert;
 import src.models.components.login.LoginFormComponentMod03;
 import src.models.pages.LoginScreenMod03;
 import src.test_flows.BaseFlow;
@@ -59,11 +60,12 @@ public class LoginFlow extends BaseFlow {
 
     private void verifyCorrectLoginCreds() {
         boolean isLoginUnsuccessful = appiumDriver.findElements(MobileBy.xpath("//*[@text='Success']")).isEmpty();
-        if (!isLoginUnsuccessful) {
-            System.out.println("Login Successfully!");
-        } else {
-            System.out.println("[ERR] Login unsuccessfully");
-        }
+        Assert.assertFalse(isLoginUnsuccessful, "[ERR] Login unsuccessfully");
+//        if (!isLoginUnsuccessful) {
+//            System.out.println("Login Successfully!");
+//        } else {
+//            System.out.println("[ERR] Login unsuccessfully");
+//        }
     }
 
     private void verifyIncorrectEmail(LoginFormComponentMod03 loginFormComp) {
@@ -72,6 +74,7 @@ public class LoginFlow extends BaseFlow {
 
         System.out.println("actualInvalidEmailText: " + actualInvalidEmailText);
         System.out.println("expectedInvalidEmailText: " + expectedInvalidEmailText);
+        Assert.assertEquals(actualInvalidEmailText, expectedInvalidEmailText, "[ERR] ...");
     }
 
     private void verifyIncorrectPassword(LoginFormComponentMod03 loginFormComp) {
@@ -80,5 +83,6 @@ public class LoginFlow extends BaseFlow {
 
         System.out.println("actualInvalidPasswordText: " + actualInvalidPasswordText);
         System.out.println("expectedInvalidPasswordText: " + expectedInvalidPasswordText);
+        Assert.assertEquals(actualInvalidPasswordText, expectedInvalidPasswordText, "[ERR] ...");
     }
 }
