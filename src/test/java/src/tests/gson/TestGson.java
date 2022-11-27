@@ -3,7 +3,6 @@ package src.tests.gson;
 import com.google.gson.Gson;
 import src.test_data.models.LoginCred;
 import src.test_data.utils.DataObjectBuilder;
-import sun.rmi.runtime.Log;
 
 import java.util.Arrays;
 import java.util.List;
