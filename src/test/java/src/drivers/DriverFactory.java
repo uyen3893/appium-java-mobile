@@ -9,9 +9,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-import static src.drivers.Platform.ANDROID;
-import static src.drivers.Platform.IOS;
-
 public class DriverFactory implements MobileCapabilityTypeEx, AppPackages {
 
     private AppiumDriver<MobileElement> appiumDriver;
@@ -40,10 +37,10 @@ public class DriverFactory implements MobileCapabilityTypeEx, AppPackages {
         }
 
         switch (platform) {
-            case ANDROID:
+            case android:
                 driver = new AndroidDriver<>(appiumServer,desiredCapabilities);
                 break;
-            case IOS:
+            case ios:
                 driver = new IOSDriver<>(appiumServer,desiredCapabilities);
                 break;
             default:
@@ -54,15 +51,8 @@ public class DriverFactory implements MobileCapabilityTypeEx, AppPackages {
         return driver;
     }
 
-    public AppiumDriver<MobileElement> getDriver(Platform platform, String udid, String systemPort) {
+    public AppiumDriver<MobileElement> getDriver(Platform platform, String udid, String systemPort, String platformVersion) {
         if (appiumDriver == null) {
-            DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-            desiredCapabilities.setCapability(PLATFORM_NAME, "android");
-            desiredCapabilities.setCapability(AUTOMATION_NAME, "uiautomator2");
-            desiredCapabilities.setCapability(UDID, udid);
-            desiredCapabilities.setCapability(APP_PACKAGE, WEBDRIVER_IO);
-            desiredCapabilities.setCapability(APP_ACTIVITY, "com.wdiodemoapp.MainActivity");
-            desiredCapabilities.setCapability(SYSTEM_PORT, systemPort);
 
             // Specify Appium Server URL
             URL appiumServer = null;
@@ -75,12 +65,26 @@ public class DriverFactory implements MobileCapabilityTypeEx, AppPackages {
             if (appiumServer == null) {
                 throw new RuntimeException("[ERR] Somehow, we couldn't construct Appium server URL");
             }
+            //Desired Capabilities
+            DesiredCapabilities desiredCaps = new DesiredCapabilities();
+            desiredCaps.setCapability(PLATFORM_NAME, platform);
+
             switch (platform) {
-                case ANDROID:
-                    appiumDriver = new AndroidDriver<>(appiumServer,desiredCapabilities);
+                case android:
+                    desiredCaps.setCapability(AUTOMATION_NAME, "uiautomator2");
+                    desiredCaps.setCapability(UDID, udid);
+                    desiredCaps.setCapability(APP_PACKAGE, WEBDRIVER_IO);
+                    desiredCaps.setCapability(APP_ACTIVITY, "com.wdiodemoapp.MainActivity");
+                    desiredCaps.setCapability(SYSTEM_PORT, systemPort);
+                    appiumDriver = new AndroidDriver<>(appiumServer,desiredCaps);
                     break;
-                case IOS:
-                    appiumDriver = new IOSDriver<>(appiumServer,desiredCapabilities);
+                case ios:
+                    desiredCaps.setCapability(AUTOMATION_NAME, "XCUITest");
+                    desiredCaps.setCapability(DEVICE_NAME, udid);
+                    desiredCaps.setCapability(PLATFORM_VERSION, platformVersion);
+                    desiredCaps.setCapability(BUNDLE_ID, "ord.wdioNativeDemoApp");
+                    desiredCaps.setCapability(WDA_LOCAL_PORT, systemPort);
+                    appiumDriver = new IOSDriver<>(appiumServer,desiredCaps);
                     break;
                 default:
                     throw new IllegalArgumentException("Platform type can't be null!");

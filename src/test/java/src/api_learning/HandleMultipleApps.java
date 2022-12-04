@@ -7,12 +7,10 @@ import src.drivers.AppPackages;
 import src.drivers.DriverFactory;
 import src.drivers.Platform;
 
-import java.time.Duration;
-
 public class HandleMultipleApps {
 
     public static void main(String[] args) {
-        AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.ANDROID);
+        AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.android);
         try {
             //Navigate to login form
             MobileElement navLoginBtnElem = appiumDriver.findElement(MobileBy.AccessibilityId("Login"));

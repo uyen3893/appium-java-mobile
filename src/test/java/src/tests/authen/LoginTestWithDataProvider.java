@@ -10,14 +10,11 @@ import src.test_data.models.LoginCred;
 import src.test_data.utils.DataObjectBuilder;
 import src.test_flows.authentication.LoginFlow;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class LoginTestWithDataProvider {
 
     @Test(dataProvider = "loginData")
     public void testLogin(LoginCred loginCred) {
-        AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.ANDROID);
+        AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.android);
         try {
             LoginFlow loginFlow = new LoginFlow(appiumDriver, loginCred.getUsername(), loginCred.getPassword());
             loginFlow. goToLoginScreen();

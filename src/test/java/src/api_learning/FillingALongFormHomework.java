@@ -20,7 +20,7 @@ import java.util.List;
 public class FillingALongFormHomework {
 
     public static void main(String[] args) {
-        AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.ANDROID);
+        AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.android);
 
         try {
             //Navigate to the Form page

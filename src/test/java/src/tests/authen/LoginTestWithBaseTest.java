@@ -1,5 +1,6 @@
 package src.tests.authen;
 
+import io.qameta.allure.TmsLink;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import src.test_data.models.LoginCred;
@@ -9,6 +10,7 @@ import src.tests.BaseTest;
 
 public class LoginTestWithBaseTest extends BaseTest {
 
+    @TmsLink("TEST-123")
     @Test(dataProvider = "loginData")
     public void testLogin(LoginCred loginCred) {
         String username = loginCred.getUsername();

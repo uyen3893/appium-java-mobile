@@ -13,12 +13,11 @@ import src.drivers.DriverFactory;
 import src.drivers.Platform;
 
 import java.time.Duration;
-import java.util.List;
 
 public class SwipeVertically {
 
     public static void main(String[] args) {
-        AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.ANDROID);
+        AppiumDriver<MobileElement> appiumDriver = DriverFactory.getDriver(Platform.android);
 
         try {
             MobileElement navFormsBtnElem = appiumDriver.findElement(MobileBy.AccessibilityId("Forms"));
