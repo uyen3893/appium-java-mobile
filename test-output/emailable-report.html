@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "https://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>TestNG Report</title>
+<style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}.invisible {display:none}</style>
+</head>
+<body>
+<table>
+<tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
+<tr><th colspan="8">Regression</th></tr>
+<tr><td><a href="#t0">emulator-5554</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">19,462</td><td></td><td></td></tr>
+<tr class="stripe"><td><a href="#t1">emulator-5556</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">25,959</td><td></td><td></td></tr>
+<tr><th>Total</th><th class="num">1</th><th class="num">0</th><th class="num">0</th><th class="num attn">1</th><th class="num">45,421</th><th colspan="2"></th></tr>
+</table>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Regression</th></tr></tbody><tbody id="t0"><tr><th colspan="4">emulator-5554 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">src.tests.authen.LoginTest</td><td><a href="#m0">testLogin</a></td><td rowspan="1">1670737778939</td><td rowspan="1">19164</td></tr></tbody>
+<tbody id="t1"><tr><th colspan="4">emulator-5556 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">src.tests.webview.WebviewTest</td><td><a href="#m1">testWebview</a></td><td rowspan="1">1670737778939</td><td rowspan="1">25417</td></tr></tbody>
+</table>
+<h2>emulator-5554</h2><h3 id="m0">src.tests.authen.LoginTest#testLogin</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>emulator-5556</h2><h3 id="m1">src.tests.webview.WebviewTest#testWebview</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">io.appium.java_client.NoSuchContextException: An unknown server-side error occurred while processing the command. Original error: No Chromedriver found that can automate Chrome &apos;103.0.5060&apos;. You could also try to enable automated chromedrivers download server feature. See https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/web/chromedriver.md for more details
+Build info: version: &apos;unknown&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;
+System info: host: &apos;DESKTOP-RAH6IHC&apos;, ip: &apos;192.168.1.7&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_351&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.wdiodemoapp.MainActivity, appPackage: com.wdiodemoapp, automationName: uiautomator2, databaseEnabled: false, desired: {appActivity: com.wdiodemoapp.MainActivity, appPackage: com.wdiodemoapp, automationName: uiautomator2, platformName: android, server:CONFIG_UUID: fe0fae99-5e60-4eb2-afea-412..., systemPort: 9161, udid: emulator-5556}, deviceApiLevel: 33, deviceManufacturer: Google, deviceModel: sdk_gphone64_x86_64, deviceName: emulator-5556, deviceScreenDensity: 440, deviceScreenSize: 1080x2220, deviceUDID: emulator-5556, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 2.75, platform: LINUX, platformName: android, platformVersion: 13, server:CONFIG_UUID: fe0fae99-5e60-4eb2-afea-412..., statBarHeight: 66, systemPort: 9161, takesScreenshot: true, udid: emulator-5556, viewportRect: {height: 2022, left: 0, top: 66, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: abe27166-92ab-4469-a900-4487a6e43fb3
+	at io.appium.java_client.AppiumDriver.context(AppiumDriver.java:232)
+	at src.tests.webview.WebviewTest.testWebview(WebviewTest.java:33)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: org.openqa.selenium.WebDriverException: An unknown server-side error occurred while processing the command. Original error: No Chromedriver found that can automate Chrome &apos;103.0.5060&apos;. You could also try to enable automated chromedrivers download server feature. See https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/web/chromedriver.md for more details
+Build info: version: &apos;unknown&apos;, revision: &apos;unknown&apos;, time: &apos;unknown&apos;
+System info: host: &apos;DESKTOP-RAH6IHC&apos;, ip: &apos;192.168.1.7&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_351&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appActivity: com.wdiodemoapp.MainActivity, appPackage: com.wdiodemoapp, automationName: uiautomator2, databaseEnabled: false, desired: {appActivity: com.wdiodemoapp.MainActivity, appPackage: com.wdiodemoapp, automationName: uiautomator2, platformName: android, server:CONFIG_UUID: fe0fae99-5e60-4eb2-afea-412..., systemPort: 9161, udid: emulator-5556}, deviceApiLevel: 33, deviceManufacturer: Google, deviceModel: sdk_gphone64_x86_64, deviceName: emulator-5556, deviceScreenDensity: 440, deviceScreenSize: 1080x2220, deviceUDID: emulator-5556, javascriptEnabled: true, locationContextEnabled: false, networkConnectionEnabled: true, pixelRatio: 2.75, platform: LINUX, platformName: android, platformVersion: 13, server:CONFIG_UUID: fe0fae99-5e60-4eb2-afea-412..., statBarHeight: 66, systemPort: 9161, takesScreenshot: true, udid: emulator-5556, viewportRect: {height: 2022, left: 0, top: 66, width: 1080}, warnings: {}, webStorageEnabled: false}
+Session ID: abe27166-92ab-4469-a900-4487a6e43fb3
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at io.appium.java_client.remote.AppiumCommandExecutor.execute(AppiumCommandExecutor.java:250)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at io.appium.java_client.DefaultGenericMobileDriver.execute(DefaultGenericMobileDriver.java:41)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:1)
+	at io.appium.java_client.android.AndroidDriver.execute(AndroidDriver.java:1)
+	at io.appium.java_client.AppiumDriver.context(AppiumDriver.java:229)
+	... 24 more
+... Removed 22 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+</body>
+</html>
